@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber-- Tentang Hacker</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Ubuntu:wght@300;400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Ubuntu', sans-serif;
+            background-color: #0f0f1a;
+            color: #e0e0e0;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Falling stars background */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #fff;
+            border-radius: 50%;
+            animation: fall linear infinite;
+        }
+        
+        @keyframes fall {
+            from {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        header {
+            text-align: center;
+            padding: 2rem 0;
+            background: rgba(15, 15, 26, 0.8);
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            color: #4fc3f7;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .dashboard {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .stats-card {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(25, 25, 40, 0.8);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+        
+        .stats-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stats-card h2 {
+            color: #4fc3f7;
+            margin-bottom: 1.5rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .chart-container {
+            height: 300px;
+            margin-top: 1.5rem;
+        }
+        
+        .info-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .info-card {
+            background: rgba(25, 25, 40, 0.8);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .info-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #4fc3f7;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .info-card.blackhat {
+            border-top: 5px solid #f44336;
+        }
+        
+        .info-card.whitehat {
+            border-top: 5px solid #4caf50;
+        }
+        
+        .info-card p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .feature-list {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-list li {
+            margin-bottom: 0.5rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background: rgba(15, 15, 26, 0.8);
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard {
+                flex-direction: column;
+            }
+            
+            .stats-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <header>
+        <div class="container">
+            <h1>Cyber Security Awareness</h1>
+            <p>Website Ini dibuat Oleh Rellz</p>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="dashboard">
+            <div class="stats-card">
+                <h2>Global Cyber Attacks Dashboard</h2>
+                <p>Berikut adalah gambaran statistik serangan cyber yang terjadi di seluruh dunia:</p>
+                <div class="chart-container">
+                    <canvas id="attackChart"></canvas>
+                </div>
+                <div class="stats">
+                    <p><strong>Serangan per menit:</strong> <span id="attacks-per-minute">150,000</span></p>
+                    <p><strong>Serangan per hari:</strong> <span id="attacks-per-day">216 million</span></p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="info-section">
+            <div class="info-card blackhat">
+                <h3>Blackhat Hacker - Si Jagoan Gelap</h3>
+                <img src="https://placehold.co/600x300" alt="Blackhat hacker in dark hoodie working on multiple computer screens in a dimly lit room" class="full-width" />
+                
+                <p>Blackhat hacker adalah para peretas yang menggunakan keahlian mereka untuk tujuan jahat dan melanggar hukum. Mereka bekerja secara tersembunyi di dunia underground cybercrime.</p>
+                
+                <h4>Aktivitas Khas Blackhat:</h4>
+                <ul class="feature-list">
+                    <li><strong>Pencurian Data:</strong> Mencuri informasi pribadi, kredensial, dan data sensitif</li>
+                    <li><strong>Ransomware:</strong> Mengenkripsi data korban dan meminta tebusan</li>
+                    <li><strong>DDoS Attacks:</strong> Membanjiri server dengan traffic hingga crash</li>
+                    <li><strong>Phishing:</strong> Menipu korban untuk memberikan informasi sensitif</li>
+                    <li><strong>Dark Web Activities:</strong> Beroperasi di jaringan tersembunyi</li>
+                </ul>
+                
+                <h4>Tingkat Kerusakan:</h4>
+                <p>Menurut statistik terbaru, serangan blackhat telah menyebabkan kerugian hingga $6 triliun secara global pada tahun 2021. Jumlah ini terus meningkat sekitar 15% setiap tahunnya.</p>
+            </div>
+            
+            <div class="info-card whitehat">
+                <h3>Whitehat Hacker - Pahlawan Cyber</h3>
+                <img src="https://placehold.co/600x300" alt="Professional whitehat hacker in office environment analyzing security threats on multiple monitors" class="full-width" />
+                
+                <p>Whitehat hacker adalah para ahli keamanan cyber yang menggunakan keahlian mereka untuk melindungi sistem dan membantu organisasi memperkuat pertahanan mereka.</p>
+                
+                <h4>Aktivitas Whitehat:</h4>
+                <ul class="feature-list">
+                    <li><strong>Ethical Hacking:</strong> Melakukan penetration testing dengan izin</li>
+                    <li><strong>Bug Bounty:</strong> Mencari kerentanan sistem untuk mendapat hadiah</li>
+                    <li><strong>Security Consulting:</strong> Memberikan saran keamanan</li>
+                    <li><strong>Incident Response:</strong> Menanggapi serangan cyber</li>
+                    <li><strong>Security Training:</strong> Mendidik orang tentang keamanan cyber</li>
+                </ul>
+                
+                <h4>Dampak Positif:</h4>
+                <p>Whitehat hacker telah membantu mencegah ribuan serangan setiap hari. Perusahaan teknologi besar seperti Google, Microsoft, dan Facebook memiliki program bug bounty yang membayar jutaan dolar kepada whitehat hacker setiap tahunnya.</p>
+            </div>
+        </section>
+        
+        <section class="stats-card">
+            <h2>Tren Serangan Cyber Tahun Ini</h2>
+            <p>Berikut adalah perkembangan serangan cyber yang tercatat:</p>
+            <div class="chart-container">
+                <canvas id="trendChart"></canvas>
+            </div>
+            <p>Analisis menunjukkan peningkatan serangan ransomware sebesar 45% dibandingkan tahun lalu, sementara serangan phishing meningkat sekitar 30%.</p>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Cyber Security Awareness | Dibuat untuk edukasi kesadaran keamanan cyber</p>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Create falling stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const starsCount = 100;
+            
+            for (let i = 0; i < starsCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // Random position
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                
+                // Random size
+                const size = Math.random() * 3;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                
+                // Random animation duration
+                star.style.animationDuration = `${5 + Math.random() * 15}s`;
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        // Initialize charts
+        function initCharts() {
+            // Attack types chart
+            const attackCtx = document.getElementById('attackChart').getContext('2d');
+            const attackChart = new Chart(attackCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Phishing', 'Malware', 'DDoS', 'Ransomware', 'Exploits', 'Lainnya'],
+                    datasets: [{
+                        data: [35, 25, 15, 12, 8, 5],
+                        backgroundColor: [
+                            '#FF6384',
+                            '#36A2EB',
+                            '#FFCE56',
+                            '#4BC0C0',
+                            '#9966FF',
+                            '#FF9F40'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                color: '#e0e0e0'
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Trend chart
+            const trendCtx = document.getElementById('trendChart').getContext('2d');
+            const trendChart = new Chart(trendCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [
+                        {
+                            label: 'Serangan Terdeteksi',
+                            data: [1200, 1900, 3000, 5000, 2000, 3000, 4500, 5100, 4700, 5200, 6000, 7500],
+                            borderColor: '#f44336',
+                            backgroundColor: 'rgba(244, 67, 54, 0.1)',
+                            fill: true,
+                            tension: 0.4
+                        },
+                        {
+                            label: 'Serangan Digagalkan',
+                            data: [800, 1200, 2000, 3500, 1500, 2500, 3800, 4200, 4000, 4500, 5000, 6000],
+                            borderColor: '#4caf50',
+                            backgroundColor: 'rgba(76, 175, 80, 0.1)',
+                            fill: true,
+                            tension: 0.4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                color: '#e0e0e0'
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                color: '#e0e0e0'
+                            },
+                            grid: {
+                                color: 'rgba(224, 224, 224, 0.1)'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: '#e0e0e0'
+                            },
+                            grid: {
+                                color: 'rgba(224, 224, 224, 0.1)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Live counter effect
+        function updateCounter() {
+            let currentAttacks = 150000;
+            const attacksElement = document.getElementById('attacks-per-minute');
+            
+            setInterval(() => {
+                currentAttacks += Math.floor(Math.random() * 100);
+                attacksElement.textContent = new Intl.NumberFormat('en-US').format(currentAttacks);
+                
+                // Update daily attacks based on minute
+                const dailyAttacks = currentAttacks * 60 * 24;
+                document.getElementById('attacks-per-day').textContent = new Intl.NumberFormat('en-US').format(dailyAttacks);
+            }, 3000);
+        }
+        
+        // Initialize everything when page loads
+        window.onload = function() {
+            createStars();
+            initCharts();
+            updateCounter();
+        };
+    </script>
+</body>
+</html>
+

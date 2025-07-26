@@ -1,1 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menampilkan Gambar</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .image-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .image-placeholder {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 4px;
+            background-color: #eee;
+            border: 1px dashed #ccc;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            margin-top: 15px;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <h1>Contoh Menampilkan Gambar</h1>
+        
+        <img 
+            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3aee8bf1-411a-4bce-a4cc-e7b69e6598d9.png" 
+            class="image-placeholder"
+            alt="Pemandangan gunung dengan danau di kaki gunung pada saat matahari terbit dengan warna emas dan oranye yang dominan" 
+            onerror="this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/18648997-3eaa-42d7-8a7d-56886dc6a000.png'"
+        />
+        
+        <p>Gambar di atas menggunakan placeholder dari placehold.co dengan alt text deskriptif untuk menggambarkan pemandangan alam yang indah.</p>
+    </div>
+</body>
+</html>
+
 
